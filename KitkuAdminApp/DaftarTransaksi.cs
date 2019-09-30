@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
-using System.Runtime.Serialization.Json;
-using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Globalization;
@@ -130,49 +122,10 @@ namespace KitkuAdminApp
         }*/
     }
 
-    //
+    
     // instance for convert JSON
-    //[System.Runtime.Serialization.DataContract]
     public partial class Pemesanan
     {
-        /*[System.Runtime.Serialization.DataMember]
-        public string id_pemesanan { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string id_pelanggan { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string nama_pelanggan { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string id_barang { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string nama_barang { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string id_supplier { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string nama_supplier { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string jumlah { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string diskon_id { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string diskon { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string harga { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string ongkir { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string waktu_pemesanan { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string waktu_pengiriman { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string catatan { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string koor { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string status { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string info { get; set; }
-        [System.Runtime.Serialization.DataMember]
-        public string last_update { get; set; }*/
         [JsonProperty("id_pemesanan")]
         public string IdPemesanan { get; set; }
 
@@ -285,6 +238,5 @@ namespace KitkuAdminApp
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
     }
-
     //
 }

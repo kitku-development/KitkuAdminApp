@@ -48,8 +48,6 @@
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -67,6 +65,12 @@
     </Compile>
     <Compile Include="EditBarang.Designer.cs">
       <DependentUpon>EditBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingDialog.Designer.cs">
+      <DependentUpon>LoadingDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="EditBarang.resx">
       <DependentUpon>EditBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingDialog.resx">
+      <DependentUpon>LoadingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
