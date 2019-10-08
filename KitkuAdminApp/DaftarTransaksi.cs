@@ -188,12 +188,12 @@ namespace KitkuAdminApp
     {
         [JsonProperty("Pemesanans")]
         public Pemesanan[] Pemesanans { get; set; }
-        public static Datas FromJson(string json) => JsonConvert.DeserializeObject<Datas>(json, KitkuAdminApp.Converter.Settings);
+        public static Datas FromJson(string json) => JsonConvert.DeserializeObject<Datas>(json, Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this Datas self) => JsonConvert.SerializeObject(self, KitkuAdminApp.Converter.Settings);
+        public static string ToJson(this Datas self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 
     internal static class Converter

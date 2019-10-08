@@ -93,13 +93,13 @@ namespace KitkuAdminApp
         private async void Button_Cari_Click(object sender, EventArgs e)
         {
             buttonCari.Enabled = false;
-            if (!string.IsNullOrEmpty(idbar_textBox.Text))
+            if (!string.IsNullOrEmpty(boxIDBarang.Text))
             {
                 loadingDialog = new LoadingDialog();
                 loadingDialog.Show();
                 //loadingDialog.Focus();
                 loadingDialog.Activate();
-                var html = await HttpClient.GetStringAsync(url + idbar_textBox.Text);
+                var html = await HttpClient.GetStringAsync(url + boxIDBarang.Text);
                 var result = Datas.FromJson(html);
 
                 boxNamaBarang.Text = result.Products[0].nama;

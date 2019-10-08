@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.userBox = new System.Windows.Forms.TextBox();
-            this.passBox = new System.Windows.Forms.TextBox();
+            this.boxUser = new System.Windows.Forms.TextBox();
+            this.boxPass = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,22 +76,22 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Password :";
             // 
-            // userBox
+            // boxUser
             // 
-            this.userBox.Location = new System.Drawing.Point(182, 208);
-            this.userBox.Name = "userBox";
-            this.userBox.Size = new System.Drawing.Size(117, 20);
-            this.userBox.TabIndex = 4;
-            this.userBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserBox_Enter);
+            this.boxUser.Location = new System.Drawing.Point(182, 208);
+            this.boxUser.Name = "boxUser";
+            this.boxUser.Size = new System.Drawing.Size(117, 20);
+            this.boxUser.TabIndex = 4;
+            this.boxUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserBox_Enter);
             // 
-            // passBox
+            // boxPass
             // 
-            this.passBox.Location = new System.Drawing.Point(182, 247);
-            this.passBox.Name = "passBox";
-            this.passBox.PasswordChar = '*';
-            this.passBox.Size = new System.Drawing.Size(117, 20);
-            this.passBox.TabIndex = 5;
-            this.passBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PassBox_Enter);
+            this.boxPass.Location = new System.Drawing.Point(182, 247);
+            this.boxPass.Name = "boxPass";
+            this.boxPass.PasswordChar = '*';
+            this.boxPass.Size = new System.Drawing.Size(117, 20);
+            this.boxPass.TabIndex = 5;
+            this.boxPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PassBox_Enter);
             // 
             // loginButton
             // 
@@ -109,8 +109,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 356);
             this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.passBox);
-            this.Controls.Add(this.userBox);
+            this.Controls.Add(this.boxPass);
+            this.Controls.Add(this.boxUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,8 +132,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox userBox;
-        private System.Windows.Forms.TextBox passBox;
+        private System.Windows.Forms.TextBox boxUser;
+        private System.Windows.Forms.TextBox boxPass;
         private System.Windows.Forms.Button loginButton;
     }
 }

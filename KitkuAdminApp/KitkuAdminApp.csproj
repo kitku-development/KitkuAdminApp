@@ -93,6 +93,12 @@
     <Compile Include="DaftarTransaksi.Designer.cs">
       <DependentUpon>DaftarTransaksi.cs</DependentUpon>
     </Compile>
+    <Compile Include="TambahBarang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TambahBarang.Designer.cs">
+      <DependentUpon>TambahBarang.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EditBarang.resx">
       <DependentUpon>EditBarang.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,9 +119,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="DaftarTransaksi.resx">
       <DependentUpon>DaftarTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahBarang.resx">
+      <DependentUpon>TambahBarang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -130,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info_icon-72a7cf.svg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

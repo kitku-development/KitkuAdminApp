@@ -64,6 +64,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Tambah Barang";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.TambahBarang_Click);
             // 
             // button1
             // 

@@ -56,17 +56,32 @@ namespace KitkuAdminApp
         public DaftarTransaksi UserControl1 { get; set; }
         public EditBarang UserControl3 { get; set; }
 
+        public TambahBarang UserControl2 { get; set; }
+
         private void RemoveControl()
         {
             switch (menu)
             {
                 case 1:                    
                     mainPanel.Controls.Remove(UserControl1); break;
+                case 2:
+                    mainPanel.Controls.Remove(UserControl2); break;
                 case 3:
                     mainPanel.Controls.Remove(UserControl3); break;
                 default:
                     break;
             };   
+        }
+
+        private void TambahBarang_Click(object sender, EventArgs e)
+        {
+            RemoveControl();
+            menu = 2;
+            UserControl2 = new TambahBarang
+            {
+                Dock = DockStyle.Fill
+            };
+            mainPanel.Controls.Add(UserControl2);
         }
     }
 }

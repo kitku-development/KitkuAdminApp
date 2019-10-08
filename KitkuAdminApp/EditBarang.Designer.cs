@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.boxKategori = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.idbar_textBox = new System.Windows.Forms.TextBox();
+            this.boxIDBarang = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.boxNamaBarang = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -94,12 +94,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "ID Barang :";
             // 
-            // idbar_textBox
+            // boxIDBarang
             // 
-            this.idbar_textBox.Location = new System.Drawing.Point(73, 7);
-            this.idbar_textBox.Name = "idbar_textBox";
-            this.idbar_textBox.Size = new System.Drawing.Size(130, 20);
-            this.idbar_textBox.TabIndex = 4;
+            this.boxIDBarang.Location = new System.Drawing.Point(73, 7);
+            this.boxIDBarang.Name = "boxIDBarang";
+            this.boxIDBarang.Size = new System.Drawing.Size(130, 20);
+            this.boxIDBarang.TabIndex = 4;
             // 
             // label3
             // 
@@ -266,7 +266,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.boxNamaBarang);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.idbar_textBox);
+            this.Controls.Add(this.boxIDBarang);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.boxKategori);
             this.Controls.Add(this.label1);
@@ -285,7 +285,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox boxKategori;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox idbar_textBox;
+        private System.Windows.Forms.TextBox boxIDBarang;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox boxNamaBarang;
         private System.Windows.Forms.Label label4;

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Net;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Windows.Forms;
 
 namespace KitkuAdminApp
@@ -36,13 +35,13 @@ namespace KitkuAdminApp
             // from the web service is happening.
             //
             // The UI thread is now free to perform other work.
-            if (string.IsNullOrWhiteSpace(userBox.Text) || string.IsNullOrWhiteSpace(passBox.Text))
+            if (string.IsNullOrWhiteSpace(boxUser.Text) || string.IsNullOrWhiteSpace(boxPass.Text))
                 MessageBox.Show("Mohon isi user dan/atau password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 // refer to BackgroundTask.cs for more detail
                 //UserData userData = new UserData();
-                string result = new UserData().execute(userBox.Text, passBox.Text);
+                /*string result = new UserData().execute(userBox.Text, passBox.Text);
                 // compare response
                 if (result.Contains("PEL-"))
                 {
@@ -62,6 +61,53 @@ namespace KitkuAdminApp
                 }
                 else
                     MessageBox.Show("Login gagal! Silakan periksa kembali data anda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    */
+                Datas datas = new Datas();
+                datas.id_supplier = boxUser.Text;
+                datas.password = boxPass.Text;
+                var ser = datas.ToJson();
+
+                // Specify requirement to POST
+                //var stringData = await _httpClient.GetStringAsync();
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://kitku.id/pelanggan/login");
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                // write data
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    //string json = sr.ReadToEnd();
+                    streamWriter.Write(ser);
+                }
+
+                // get response
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var res = Datas.FromJson(streamReader.ReadToEnd());
+                    //Console.WriteLine(res.id_supplier);
+
+                    // if data gotten
+                    if (res.message != null)
+                    {
+                        // initialize MainForm
+                        //mainForm = new MainForm();
+                        this.Hide();
+                        using (MainForm = new MainForm())
+                        {
+                            MainForm.FormClosing += MainForm_Closing;
+                            //mainForm.ShowDialog();
+                            if (MainForm.ShowDialog() == DialogResult.OK)
+                            {
+                                //Console.WriteLine("user " + result);
+                                MainForm.UserLogged = res.message;
+                            }
+                        }
+                    }
+                    else
+                        MessageBox.Show("Tidak ditemukan supplier dengan nama ini.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             loginButton.Enabled = true;
         }
@@ -87,8 +133,18 @@ namespace KitkuAdminApp
         }
     }
 
+    public partial class Datas
+    {
+        [JsonProperty("email")]
+        public string email { get; set; }
+        [JsonProperty("password")]
+        public string password { get; set; }
+        [JsonProperty("message")]
+        public string message { get; set; }
+    }
+
     // instance for convert JSON
-    [System.Runtime.Serialization.DataContract]
+    /*[System.Runtime.Serialization.DataContract]
     class ProductData
     {
         [System.Runtime.Serialization.DataMember]
@@ -179,12 +235,12 @@ namespace KitkuAdminApp
                     }
                     else
                         MessageBox.Show("Login gagal! Silakan periksa kembali data anda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        */
+                        
                 }
                 catch (Exception e) { result = e.Message; }
 
                 return result;
             }
         }
-    }
+    }*/
 }
