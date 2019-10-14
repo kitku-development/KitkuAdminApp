@@ -47,7 +47,7 @@
             this.boxJumlah = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.boxDeskripsi = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSimpan = new System.Windows.Forms.Button();
             this.buttonPilihGambar = new System.Windows.Forms.Button();
             this.buttonCari = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
@@ -104,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(255, 10);
+            this.label3.Location = new System.Drawing.Point(271, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 5;
@@ -112,9 +112,9 @@
             // 
             // boxNamaBarang
             // 
-            this.boxNamaBarang.Location = new System.Drawing.Point(339, 7);
+            this.boxNamaBarang.Location = new System.Drawing.Point(355, 7);
             this.boxNamaBarang.Name = "boxNamaBarang";
-            this.boxNamaBarang.Size = new System.Drawing.Size(176, 20);
+            this.boxNamaBarang.Size = new System.Drawing.Size(164, 20);
             this.boxNamaBarang.TabIndex = 6;
             // 
             // label4
@@ -130,6 +130,7 @@
             // 
             this.boxMitra.Location = new System.Drawing.Point(566, 7);
             this.boxMitra.Name = "boxMitra";
+            this.boxMitra.ReadOnly = true;
             this.boxMitra.Size = new System.Drawing.Size(123, 20);
             this.boxMitra.TabIndex = 8;
             // 
@@ -216,14 +217,15 @@
             this.boxDeskripsi.Size = new System.Drawing.Size(408, 128);
             this.boxDeskripsi.TabIndex = 18;
             // 
-            // button1
+            // buttonSimpan
             // 
-            this.button1.Location = new System.Drawing.Point(622, 179);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Simpan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSimpan.Location = new System.Drawing.Point(622, 179);
+            this.buttonSimpan.Name = "buttonSimpan";
+            this.buttonSimpan.Size = new System.Drawing.Size(75, 23);
+            this.buttonSimpan.TabIndex = 19;
+            this.buttonSimpan.Text = "Simpan";
+            this.buttonSimpan.UseVisualStyleBackColor = true;
+            this.buttonSimpan.Click += new System.EventHandler(this.ButtonSimpan_Click);
             // 
             // buttonPilihGambar
             // 
@@ -239,7 +241,7 @@
             // 
             this.buttonCari.Location = new System.Drawing.Point(209, 5);
             this.buttonCari.Name = "buttonCari";
-            this.buttonCari.Size = new System.Drawing.Size(40, 23);
+            this.buttonCari.Size = new System.Drawing.Size(56, 23);
             this.buttonCari.TabIndex = 21;
             this.buttonCari.Text = "Cari";
             this.buttonCari.UseVisualStyleBackColor = true;
@@ -251,7 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonCari);
             this.Controls.Add(this.buttonPilihGambar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSimpan);
             this.Controls.Add(this.boxDeskripsi);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.boxJumlah);
@@ -300,7 +302,7 @@
         private System.Windows.Forms.TextBox boxJumlah;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox boxDeskripsi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSimpan;
         private System.Windows.Forms.Button buttonPilihGambar;
         private System.Windows.Forms.Button buttonCari;
     }

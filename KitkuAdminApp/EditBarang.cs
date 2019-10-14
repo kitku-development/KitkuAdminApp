@@ -93,7 +93,7 @@ namespace KitkuAdminApp
         private async void Button_Cari_Click(object sender, EventArgs e)
         {
             buttonCari.Enabled = false;
-            if (!string.IsNullOrEmpty(boxIDBarang.Text))
+            if (!string.IsNullOrEmpty(boxIDBarang.Text) && buttonCari.Text == "Cari")
             {
                 loadingDialog = new LoadingDialog();
                 loadingDialog.Show();
@@ -128,8 +128,73 @@ namespace KitkuAdminApp
 
                 loadingDialog.dismiss();
                 buttonPilihGambar.Enabled = true;
+                buttonCari.Text = "Reset";
+                boxIDBarang.ReadOnly = true;
+            }
+            else
+            {
+                boxIDBarang.Text = "";
+                boxIDBarang.ReadOnly = false;
+                boxNamaBarang.Text = "";
+                boxMitra.Text = "";
+                boxKategori.Text = "";
+                boxJumlah.Text = "";
+                boxSatuanInt.Text = "";
+                boxHarga.Text = "";
+                boxDeskripsi.Text = "";
+                productPicture.Image = null;
+                buttonCari.Text = "Cari";
             }
             buttonCari.Enabled = true;
+        }
+
+        private void ButtonSimpan_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(boxIDBarang.Text))
+            {
+                Datas products = new Datas();
+                products.id_barang = boxIDBarang.Text;
+                products.nama = boxNamaBarang.Text;
+                products.kategori = boxKategori.Text;
+                products.satuan = boxSatuanInt.Text;
+                products.harga = boxHarga.Text;
+                products.jumlah = boxJumlah.Text;
+                products.deskripsi = boxDeskripsi.Text;
+                var ser = products.ToJson();
+                Console.WriteLine(ser);
+
+                // Specify requirement to POST
+                //var stringData = await _httpClient.GetStringAsync();
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://kitku.id/produk/update");
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                // write data
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    //string json = sr.ReadToEnd();
+                    streamWriter.Write(ser);
+                }
+
+                // get response
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var res = Datas.FromJson(streamReader.ReadToEnd());
+                    //Console.WriteLine(res.id_supplier);
+
+                    // if data gotten
+                    if (res.message.Contains("updated"))
+                    {
+                        MessageBox.Show("Berhasil mengupdate data barang!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gagal mengupdate data barang!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else MessageBox.Show("Silakan masukan ID barang dan lakukan pengeditan pada bagian yang ingin dirubah.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
@@ -160,6 +225,9 @@ namespace KitkuAdminApp
     {
         [JsonProperty("Products")]
         public Products[] Products { get; set; }
+
+        [JsonProperty("jumlah")]
+        public string jumlah { get; set; }
         //public static Datas FromJson(string json) => JsonConvert.DeserializeObject<Datas>(json, KitkuAdminApp.Converter.Settings);
     }
 
